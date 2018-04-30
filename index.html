@@ -53,214 +53,73 @@ title: Un lenguaje de patrón para microservicios
 
 		<p class="center">A continuación se listan los artículos por categorías, según la pregunta que se intenta contestar. Para mejor entendimiento, ver el mapa <i class="fas fa-up"></i></p>
 
-		<h1 id="core-patterns">Patrones base</h1>
-
+		<h3 id="core-patterns">Patrones base</h3>
 		<p>¿Cuál arquitectura deberías elegir para una aplicación?</p>
-
 		<ul>
-			<li>
-				<a href="monolithic.html">Monolítico</a> - diseña la aplicación como una unidad desplegable individual.</li>
-			<li>
-				<a href="microservices.html">Microservicios</a> - diseña la aplicación como una colección de servicios ligeramente acoplados.</li>
+			<li><a href="monolithic.html"><b>Monolítico</b></a> - diseña la aplicación como una unidad desplegable individual.</li>
+			<li><a href="microservices.html"><b>Microservicios</b></a> - diseña la aplicación como una colección de servicios ligeramente acoplados.</li>
 		</ul>
 
-		<h1 id="decomposition">Descomposición</h1>
-
+		<h3 id="decomposition">Descomposición</h3>
 		<p>¿Cómo descomponer la aplicación en servicios?</p>
-
 		<ul>
-			<li>
-				<a href="decomposition/decompose-by-business-capability.html">Descomponer por capacidades del negocio</a> - define los servicios de acuerdo a las capacidades del negocio.</li>
-			<li>
-				<a href="decomposition/decompose-by-subdomain.html">Descomponer por subdominios</a> - define los servicios de acuerdo a subdominios del modelo de dominio (Domain Driven Design)</li>
+			<li><a href="decomposition/decompose-by-business-capability.html"><b>Descomponer por capacidades del negocio</b></a> - define los servicios de acuerdo a las capacidades del negocio.</li>
+			<li><a href="decomposition/decompose-by-subdomain.html"><b>Descomponer por subdominios</b></a> - define los servicios de acuerdo a subdominios del modelo de dominio (Domain Driven Design)</li>
 		</ul>
 
-		<h1 id="deployment-patterns">Deployment patterns</h1>
-
-		<p>How to deploy an application’s services?</p>
-
+		<h3 id="deployment-patterns">Patrones de despliegue</h3>
+		<p>¿Cómo desplegar los servicios de la aplicación?</p>
 		<ul>
-			<li>
-				<a href="deployment/multiple-services-per-host.html">Multiple service instances per host</a> - deploy multiple service instances on a single host</li>
-			<li>
-				<a href="deployment/single-service-per-host.html">Service instance per host</a> - deploy each service instance in its own host</li>
-			<li>
-				<a href="deployment/service-per-vm.html">Service instance per VM</a> - deploy each service instance in its VM</li>
-			<li>
-				<a href="deployment/service-per-container.html">Service instance per Container</a> - deploy each service instance in its container</li>
-			<li>
-				<a href="/patterns/deployment/serverless-deployment.html">Serverless deployment</a> - deploy a service using serverless deployment platform</li>
-			<li>
-				<a href="/patterns/deployment/service-deployment-platform.html">Service deployment platform</a> - deploy services using a highly automated deployment platform that provides a service
-				abstraction</li>
+			<li><a href="deployment/multiple-services-per-host.html"><b>Múltiples instancias de servicios por host</b></a> - despliega múltiples instancias de servicios en un sólo host.</li>
+			<li><a href="deployment/single-service-per-host.html"><b>Una instancia de servicio por host</b></a> - despliega cada instancia de servicio en su propio host.</li>
+			<li><a href="deployment/service-per-vm.html"><b>Una instancia de servicio por máquina virtual</b></a> - despliega cada instancia de servicio en su propia máquina virtual.</li>
+			<li><a href="deployment/service-per-container.html"><b>Una instancia de servicio por contenedor</b></a> - despliega cada instancia de servicio en su propio contenedor.</li>
+			<li><a href="/patterns/deployment/serverless-deployment.html"><b>Despliegue sin servidor (BaaS)</b></a> - despliega un servicio en una plataforma de "BaaS" (Backend-As-A-Service).</li>
+			<li><a href="/patterns/deployment/service-deployment-platform.html"><b>Plataforma de despliegue de servicios</b></a> - despliega servicios usando una plataforma de despliegue altamente automatizada que provee abstracción de servicios.</li>
 		</ul>
 
-		<h1 id="cross-cutting-concerns">Cross cutting concerns</h1>
-
-		<p>How to handle cross cutting concerns?</p>
-
+		<h3 id="cross-cutting-concerns">Intereses transversales</h3>
+		<p>¿Cómo manejar los intereses transversales?</p>
 		<ul>
-			<li>
-				<a href="/patterns/microservice-chassis.html">Microservice chassis</a> - a framework that handles cross-cutting concerns and simplifies the development of services</li>
-			<li>
-				<a href="/patterns/externalized-configuration.html">Externalized configuration</a> - externalize all configuration such as database location and credentials</li>
+			<li><a href="/patterns/microservice-chassis.html"><b>Chasis de microservicios</b></a> - un framework que maneja intereses transversales y simplifica el desarrollo de servicios.</li>
+			<li><a href="/patterns/externalized-configuration.html"><b>Externalized configuration</b></a> - externaliza todas las configuraciones, como la dirección de la base de datos, y credenciales</li>
 		</ul>
 
-		<h1 id="communication-patterns">Communication patterns</h1>
+		<h3 id="communication-patterns">Patrones de comunicación</h3>
 
-		<h2 id="style">Style</h2>
-
-		<p>Which communication mechanisms do services use to communicate with each other and their external clients?</p>
-
+		<h4 id="style">Estilo</h4>
+		<p>¿Qué mecanismos de comunicación usan los servicios para comunicarse entre ellos y con sus clientes externos?</p>
 		<ul>
-			<li>
-				<a href="communication-style/rpi.html">Remote Procedure Invocation</a> - use an RPI-based protocol for inter-service communication</li>
-			<li>
-				<a href="communication-style/messaging.html">Messaging</a> - use asynchronous messaging for inter-service communication</li>
-			<li>
-				<a href="communication-style/domain-specific.html">Domain-specific protocol</a> - use a domain-specific protocol</li>
+			<li><a href="communication-style/rpi.html"><b>Llamada a procedimiento remoto</b></a> - usa un protocolo orientado a RPC para la comunicación entre servicios.</li>
+			<li><a href="communication-style/messaging.html"><b>Mensajería</b></a> - usa mensajes asíncronos para la comunicación entre servicios.</li>
+			<li><a href="communication-style/domain-specific.html">Protocolo específico del dominio</a> - usa un protocolo especificado por el dominio.</li>
 		</ul>
 
-		<h2 id="external-api">External API</h2>
-
-		<p>How do external clients communicate with the services?</p>
-
-		<ul>
-			<li>
-				<a href="apigateway.html">API gateway</a> - a service that provides each client with unified interface to services</li>
-			<li>
-				<a href="apigateway.html">Backend for front-end</a> - a separate API gateway for each kind of client</li>
-		</ul>
-
-		<h2 id="service-discovery">Service discovery</h2>
-
-		<p>How does the client of an RPI-based service discover the network location of a service instance?</p>
+		<h4 id="external-api">API Externa</h4>
+		<p>¿Cómo se comunican los clientes con los servicios?</p>
 
 		<ul>
-			<li>
-				<a href="client-side-discovery.html">Client-side discovery</a> - client queries a service registry to discover the locations of service instances</li>
-			<li>
-				<a href="server-side-discovery.html">Server-side discovery</a> - router queries a service registry to discover the locations of service instances</li>
-			<li>
-				<a href="service-registry.html">Service registry</a> - a database of service instance locations</li>
-			<li>
-				<a href="self-registration.html">Self registration</a> - service instance registers itself with the service registry</li>
-			<li>
-				<a href="3rd-party-registration.html">3rd party registration</a> - a 3rd party registers a service instance with the service registry</li>
+			<li><a href="apigateway.html"><b>API Gateway (Puerta de enlace)</b></a> - un servicio que provee a todos los clientes con una interfaz única hacia los servicios.</li>
+			<li><a href="apigateway.html"><b>Backend para el front-end</b></a> - una puerta de enlace por cada tipo de cliente</li>
 		</ul>
 
-		<h2 id="reliability">Reliability</h2>
-
-		<p>How to prevent a network or service failure from cascading to other services?</p>
-
+		<h4 id="service-discovery">Descubrimiento de servicios</h4>
+		<p>¿Cómo descubren la ubicación de red de una instancia los clientes de un servicio orientado a RPC?</p>
 		<ul>
-			<li>
-				<a href="reliability/circuit-breaker.html">Circuit Breaker</a> - invoke a remote service via a proxy that fails immediately when the failure rate of the remote call
-				exceeds a threshold</li>
+			<li><a href="client-side-discovery.html"><b>Descubrimiento en el lado del cliente</b></a> - el cliente consulta un registro de servicios para descubrir la ubicación de una instancia de servicio.</li>
+			<li><a href="server-side-discovery.html"><b>Descubrimiento en el lado del servidor</b></a> - un enrutador consulta un registro de servicios para descubrir la ubicación de una instancia de servicio.</li>
+			<li><a href="service-registry.html"><b>Registro de servicios</b></a> - una base de datos para las ubicaciones de instancias de servicio.</li>
+			<li><a href="self-registration.html"><b>Autoregistro</b></a> - una instancia de servicio se registra a sí misma en el registro de servicios.</li>
+			<li><a href="3rd-party-registration.html"><b>Registro de terceros</b></a> - un tercero registra una instancia de servicio en el registro de servicios.</li>
 		</ul>
 
-		<h1 id="data-management">Data management</h1>
-
-		<p>How to maintain data consistency and implement queries?</p>
-
+		<h4 id="reliability">Confiabilidad</h4>
+		<p>¿Cómo prevenimos que la falla de un servicio afecte a los demás?</p>
 		<ul>
-			<li>
-				<a href="data/database-per-service.html">Database per Service</a> - each service has its own private database</li>
-			<li>
-				<a href="data/shared-database.html">Shared database</a> - services share a database</li>
-			<li>
-				<a href="data/saga.html">Saga</a>
-				<span class="new-marker">new</span> - use sagas, which a sequences of local transactions, to maintain data consistency across services</li>
-			<li>
-				<a href="data/api-composition.html">API Composition</a>
-				<span class="new-marker">new</span> - implement queries by invoking the services that own the data and performing an in-memory join</li>
-			<li>
-				<a href="data/cqrs.html">CQRS</a> - implement queries by maintaining one or more materialized views that can be efficiently queried</li>
-			<li>
-				<a href="data/event-sourcing.html">Event sourcing</a> - persist aggregates as a sequence of events</li>
-			<li>
-				<a href="data/transaction-log-tailing.html">Transaction log tailing</a> - publish changes captured in the database’s transaction log as messages</li>
-			<li>
-				<a href="data/database-triggers.html">Database triggers</a> - use triggers to capture changes made to data</li>
-			<li>
-				<a href="data/application-events.html">Application events</a> - application inserts events into a database table that is used as a message queue</li>
+			<li><a href="reliability/circuit-breaker.html"><b>Corta circuitos</b></a> - invoca un servicio remoto vía proxy que falla inmediatamente cuando la tasa de fallo de la llamada remota excede un umbral</li>
 		</ul>
 
-		<h1 id="security">Security</h1>
-
-		<p>How to communicate the identity of the requestor to the services that handle the request?</p>
-
-		<ul>
-			<li>
-				<a href="security/access-token.html">Access Token</a> - a token that securely stores information about user that is exchanged between services</li>
-		</ul>
-
-		<h1 id="testing">Testing</h1>
-
-		<p>How to make testing easier?</p>
-
-		<ul>
-			<li>
-				<p>
-					<a href="testing/service-component-test.html">Service Component Test</a> - a test suite that tests a service in isolation using test doubles for any services that it
-					invokes</p>
-			</li>
-			<li>
-				<p>
-					<a href="testing/service-integration-contract-test.html">Service Integration Contract Test</a> - a test suite for a service that is written by the developers of another service
-					that consumes it</p>
-			</li>
-		</ul>
-
-		<h1 id="observability">Observability</h1>
-
-		<p>How to understand the behavior of an application and troubleshoot problems?</p>
-
-		<ul>
-			<li>
-				<a href="observability/application-logging.html">Log aggregation</a> - aggregate application logs</li>
-			<li>
-				<a href="observability/application-metrics.html">Application metrics</a> - instrument a service’s code to gather statistics about operations</li>
-			<li>
-				<a href="observability/audit-logging.html">Audit logging</a> - record user activity in a database</li>
-			<li>
-				<p>
-					<a href="observability/distributed-tracing.html">Distributed tracing</a> - instrument services with code that assigns each external request an unique identifier that is
-					passed between services. Record information (e.g. start time, end time) about the work (e.g. service requests) performed
-					when handling the external request in a centralized service</p>
-			</li>
-			<li>
-				<p>
-					<a href="observability/exception-tracking.html">Exception tracking</a> - report all exceptions to a centralized exception tracking service that aggregates and tracks
-					exceptions and notifies developers.</p>
-			</li>
-			<li>
-				<p>
-					<a href="observability/health-check-api.html">Health check API</a> - service API (e.g. HTTP endpoint) that returns the health of the service and can be pinged, for
-					example, by a monitoring service</p>
-			</li>
-			<li>
-				<a href="/patterns/observability/log-deployments-and-changes.html">Log deployments and changes</a>
-				<span class="new-marker">new</span>
-			</li>
-		</ul>
-
-		<h1 id="ui-patterns">UI patterns</h1>
-
-		<p>How to implement a UI screen or page that displays data from multiple services?</p>
-
-		<ul>
-			<li>
-				<p>
-					<a href="ui/server-side-page-fragment-composition.html">Server-side page fragment composition</a> - build a webpage on the server by composing HTML fragments generated by multiple,
-					business capability/subdomain-specific web applications</p>
-			</li>
-			<li>
-				<p>
-					<a href="ui/client-side-ui-composition.html">Client-side UI composition</a> - Build a UI on the client by composing UI fragments rendered by multiple, business capability/subdomain-specific
-					UI components</p>
-			</li>
-		</ul>
+		
 
 	</div>
 </section>
