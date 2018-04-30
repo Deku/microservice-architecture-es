@@ -2151,6 +2151,14 @@
 			background-image: url("images/overlay.png");
 		}
 
+		#main > section p {
+			text-align: left;
+		}
+
+		#main > section p.center {
+			text-align: center;
+		}
+
 			#main > section.dark {
 				color: #ddd;
 				color: rgba(255, 255, 255, 0.75);
