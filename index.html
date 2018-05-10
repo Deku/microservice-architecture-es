@@ -117,10 +117,59 @@ title: Un lenguaje de patrón para microservicios
 		<h4 id="reliability">Confiabilidad</h4>
 		<p>¿Cómo prevenimos que la falla de un servicio afecte a los demás?</p>
 		<ul>
-			<li><a href="reliability/circuit-breaker.html"><b>Corta circuitos</b></a> - invoca un servicio remoto vía proxy que falla inmediatamente cuando la tasa de fallo de la llamada remota excede un umbral</li>
+			<li><a href="reliability/circuit-breaker.html"><b>Corta circuitos</b></a> - invoca un servicio remoto a través de un proxy, el cual falla inmediatamente cuando la tasa de fallos de la llamada remota excede un umbral.</li>
 		</ul>
 
-		
+		<h3 id="data-management">Administración de datos</h3>
+		<p>¿Cómo mantener la consistencia de datos e implementar las consultas?</p>
+		<ul>
+			<li><a href="data/database-per-service.html"><b>Base de datos por servicio</b></a> - cada servicio tiene su propia base de datos privada.</li>
+			<li><a href="data/shared-database.html"><b>Base de datos compartida</b></a> - los servicios comparten una o más bases de datos.</li>
+			<li><a href="data/saga.html"><b>Saga</b></a> - usa sagas, secuencias de transacciones locales, para mantener consistencia de datos entre servicios.</li>
+			<li><a href="data/api-composition.html"><b>Composición de API</b></a> - implementa consultas invocando los servicios que poseen los datos y la realiza una unión en memoria.</li>
+			<li><a href="data/cqrs.html"><b>Separación de responsabilidad de comandos y consultas (CQRS)</b></a> - implementa consultas manteniendo una o más vistas que pueden ser consultadas eficientemente.</li>
+			<li><a href="data/event-sourcing.html"><b>Event Sourcing</b></a> - almacena conjuntos como una secuencia de eventos.</li>
+			<li><a href="data/transaction-log-tailing.html"><b>Transaction log tailing</b></a> - publica como mensajes los cambios registrados en el historial de transacciones de la base de datos.</li>
+			<li><a href="data/database-triggers.html"><b>Triggers en la base de datos</b></a> - usa triggers para capturar la modificación de los datos.</li>
+			<li><a href="data/application-events.html"><b>Eventos de aplicación</b></a> - la aplicación inserta eventos en una tabla de base de datos que es usada como cola de mensajes.</li>
+		</ul>
+
+		<h3 id="security">Seguridad</h3>
+		<p>¿Cómo comunicar la identidad del solicitante a los servicios que manejan la solicitud?</p>
+		<ul>
+			<li><a href="security/access-token.html"><b>Token de acceso</b></a> - un token seguro con información del usuario que es intercambiado entre servicios.</li>
+		</ul>
+
+		<h3 id="testing">Pruebas</h3>
+		<p>¿Cómo realizar pruebas de forma sencilla?</p>
+		<ul>
+			<li><a href="testing/service-component-test.html"><b>Prueba de componentes del servicio</b></a> - un plan de pruebas que evalúa un servicio de forma aislada utilizando imitaciones para todos los servicios que este invoca.</li>
+			<li><a href="testing/service-integration-contract-test.html"><b>Prueba del contrato para la integración de servicios</b></a> - un plan de pruebas para evaluar la integración con un servicio externo.</li>
+		</ul>
+
+		<h3 id="observability">Observabilidad</h3>
+		<p>¿Cómo entender el comportamiento de una aplicación y resolver problemas?</p>
+		<ul>
+			<li><a href="observability/application-logging.html"><b>Colección de logs</b></a> - agrupa los logs de las aplicaciones</li>
+			<li><a href="observability/application-metrics.html"><b>Métricas de la aplicación</b></a> - instrumentaliza el código de un servicio para recolectar estadísticas operativas.</li>
+			<li><a href="observability/audit-logging.html"><b>Log de auditoría</b></a> - almacena la actividad de los usuarios en una base de datos.</li>
+			<li><a href="observability/distributed-tracing.html"><b>Traza distribuida</b></a> - instrumentaliza los servicios con código que asigna a cada solicitud externa un identificador único
+					que es pasado entre servicios. Almacena información acerca del trabajo realizado (por ej.: hora inicio, hora fin) cuando se maneje la solicitud
+					en un servicio centralizado.</li>
+			<li><a href="observability/exception-tracking.html"><b>Seguimiento de excepciones</b></a> - reporta todas las excepciones a un servicio de seguimiento centralizado que agrupa y rastrea
+					excepciones y notifica a los desarrolladores.</li>
+			<li><a href="observability/health-check-api.html"><b>API para verificación de estado</b></a> - API del servicio que retorna el estado de salud y que puede ser consultada para monitoreo.</li>
+			<li><a href="/patterns/observability/log-deployments-and-changes.html"><b>Registro de despliegues y cambios</b></a></li>
+		</ul>
+
+		<h3 id="ui-patterns">Patrones de Interfaz de Usuario</h3>
+		<p>¿Cómo implementar una interfaz de usuario que muestra datos desde múltiples servicios?</p>
+		<ul>
+			<li><a href="ui/server-side-page-fragment-composition.html"><b>Composición de fragmentos de página en el lado del servidor</b></a> - construye una página en el servidor mediante la composición de fragmentos HTML generados por múltiples 
+					aplicaciones web específicas de los distintos subdominios/áreas del negocio.</li>
+			<li><a href="ui/client-side-ui-composition.html"><b>Composición de la interfaz de usuario en el lado del cliente</b></a> - Construye la interfaz de usuario en el cliente mediante la composición de fragmentos de interfaz renderizados por múltiples
+					componentes de interfaz de usuario específicos de los distintos subdominios/áreas del negocio.</li>
+		</ul>
 
 	</div>
 </section>
