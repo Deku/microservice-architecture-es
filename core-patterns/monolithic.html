@@ -8,7 +8,7 @@ title: Arquitectura monolítica
 <section id="top" class="one dark cover center">
 	<div class="container">
 		<header>
-			<h1 class="alt">Patrón: Arquitectura monolítica</h1>
+			<h2 class="alt">Patrón: Arquitectura monolítica</h2>
 		</header>
 	</div>
 </section>
@@ -31,7 +31,7 @@ title: Arquitectura monolítica
         <p>¿Cuál es la arquitectura de despliegue de la aplicación?</p>
 
         <h2>Motivantes</h2>
-        <ul>
+        <ul class="default">
             <li>Existe un equipo de desarrollo trabajando en la aplicación.</li>
             <li>Los miembros nuevos del equipo deben volverse productivos rápidamente.</li>
             <li>La aplicación debe ser fácil de entender y modificar.</li>
@@ -42,13 +42,11 @@ title: Arquitectura monolítica
         </ul>
 
         <h2>Solución</h2>
-        <p>
-            Construye una aplicación con una arquitectura monolítica. Por ejemplo:
-            <ul>
-                <li>Un fichero WAR individual.</li>
-                <li>Una aplicación en NodeJS contenida en una carpeta individual.</li>
-            </ul>
-        </p>
+        <span>Construye una aplicación con una arquitectura monolítica. Por ejemplo:</span>
+        <ul class="default">
+            <li>Un fichero WAR individual.</li>
+            <li>Una aplicación en NodeJS contenida en una carpeta individual.</li>
+        </ul>
 
         <h2>Ejemplo</h2>
         <p>
@@ -67,51 +65,48 @@ title: Arquitectura monolítica
         </p>
         <img src="http://microservices.io/i/DecomposingApplications.011.jpg" alt="Diagrama aplicación monolítica"/>
 
-        <h2>Resultado obtenido</h2>
-        <p>
-            Esta solución trae varios beneficios:
-            <ul>
-                <li>Desarrollo simple - el objetivo de las herramientas de desarrollo e IDEs actuales es apoyar el desarrollo de aplicaciones monolíticas.</li>
-                <li>Despliegue simple - sólo necesitas desplegar el archivo WAR (o jerarquía de directorios) en el runtime apropiado.</li>
-                <li>Escalado simple - puedes escalar la aplicación ejecutando múltiples copias de la aplicación detrás de un balanceador de carga.</li>
-            </ul>
-        </p>
-        <p>
-            Sin embargo, una vez que la aplicación se hace más grande y el equipo crece en tamaño, este método tiene una serie de inconvenientes que se vuelven cada vez más significativos:
-            <ul>
-                <li><b>La gran base monolítica de código intimida a los desarrolladores</b>, especialmente a aquellos que son nuevos en el equipo. La aplicación 
-                    puede ser difícil de entender y modificar. Como resultado, el desarrollo normalmente se ralentiza. Además, como no hay límites estrictos 
-                    entre los módulos, la modularidad se rompe con el tiempo. Además, debido a que puede ser difícil entender cómo implementar correctamente 
-                    un cambio, la calidad del código declina con el tiempo. Es una espiral descendente.</li>
-                <li><b>IDE sobrecargado</b> - cuanto mayor es la base de código, más lento es el IDE y menos productivos son los desarrolladores.</li>
-                <li><b>Contenedor web sobrecargado</b> - cuanto más grande es la aplicación, más tiempo tarda en iniciarse. Esto tiene un gran impacto en la 
-                    productividad de los desarrolladores debido al tiempo perdido esperando a que el contenedor comience. También afecta al despliegue.</li>
-                <li><b>El despliegue continuo es difícil</b> - una aplicación monolítica de gran tamaño es también un obstáculo para los despliegues frecuentes. Para 
-                    actualizar un componente tiene que volver a desplegar toda la aplicación. Esto interrumpirá las tareas en segundo plano (por ejemplo, los 
-                    trabajos de Quartz en una aplicación Java), independientemente de si se ven afectados por el cambio, y posiblemente causen problemas. También 
-                    existe la posibilidad de que los componentes que no se hayan actualizado no se inicien correctamente. Como resultado, el riesgo asociado con 
-                    la redistribución aumenta, lo que desalienta las actualizaciones frecuentes. Esto es especialmente un problema para los desarrolladores de 
-                    interfaces de usuario, ya que por lo general necesitan iterar rápidamente y redistribuir con frecuencia.</li>
-                <li><b>Escalar la aplicación puede ser difícil</b> - una arquitectura monolítica es aquella que sólo puede escalar en una dimensión. Por un lado, puede 
-                    escalar por un volumen de transacciones creciente, ejecutando más copias de la aplicación. Algunas nubes pueden incluso ajustar de forma dinámica 
-                    el número de instancias basándose en la carga. Pero por otro lado, esta arquitectura no puede escalar por un incremento en el volumen de datos. 
-                    Cada copia de la instancia de aplicación accederá a todos los datos, lo que hace que el almacenamiento en caché sea menos eficaz y aumenta el 
-                    consumo de memoria y el tráfico de E/S. Además, los distintos componentes de aplicación tienen requisitos de recursos diferentes: uno puede ser 
-                    intensivo en CPU mientras que otro puede ser intensivo en memoria. Con una arquitectura monolítica no podemos escalar cada componente de forma independiente.</li>
-                <li><b>Obstáculo para el desarrollo en escala</b> - Una aplicación monolítica es también un obstáculo para el desarrollo en escala. Una vez que la aplicación 
-                    alcanza un cierto tamaño, es útil dividir el área de ingeniería en equipos que se centran en áreas funcionales específicas. Por ejemplo, es 
-                    posible que queramos tener el equipo de interfaz de usuario, el equipo de contabilidad, el equipo de inventario, etc. El problema con una 
-                    aplicación monolítica es que impide que los equipos trabajen de forma independiente. Los equipos deben coordinar sus esfuerzos de desarrollo y 
-                    redistribución. Es mucho más difícil para un equipo hacer un cambio y actualizar en producción.</li>
-                <li><b>Requiere un compromiso a largo plazo con una pila de tecnologías</b> - una arquitectura monolítica le obliga a casarse con la pila de tecnologías 
-                    (y en algunos casos, con una versión particular de esa tecnología) que eligió al comienzo del desarrollo. Con una aplicación monolítica, puede 
-                    ser difícil adoptar gradualmente una tecnología más nueva. Por ejemplo, imaginemos que usted eligió la JVM. Tiene algunas opciones de lenguaje, 
-                    ya que además de Java puede utilizar otros lenguajes de la JVM que interactúan muy bien con Java como Groovy y Scala. Pero los componentes 
-                    escritos en lenguajes que no son JVM no tienen cabida dentro de su arquitectura monolítica. Además, si su aplicación utiliza un framework de 
-                    plataforma que posteriormente se vuelve obsoleto, puede resultar difícil migrar gradualmente la aplicación a un framework más nuevo y mejor. 
-                    Es posible que para adoptar un nuevo framework de plataforma tenga que reescribir toda la aplicación, lo cual es una tarea arriesgada.</li>
-            </ul>
-        </p>
+        <h2>Resultados obtenidos</h2>
+        <span>Esta solución trae varios beneficios:</span>
+        <ul class="default">
+            <li><b>Desarrollo simple</b> - el objetivo de las herramientas de desarrollo e IDEs actuales es apoyar el desarrollo de aplicaciones monolíticas.</li>
+            <li><b>Despliegue simple</b> - sólo necesitas desplegar el archivo WAR (o jerarquía de directorios) en el runtime apropiado.</li>
+            <li><b>Escalado simple</b> - puedes escalar la aplicación ejecutando múltiples copias de la aplicación detrás de un balanceador de carga.</li>
+        </ul>
+
+        <span>Sin embargo, una vez que la aplicación se hace más grande y el equipo crece en tamaño, este método tiene una serie de inconvenientes que se vuelven cada vez más significativos:</span>
+        <ul class="default">
+            <li><b>La gran base monolítica de código intimida a los desarrolladores</b>, especialmente a aquellos que son nuevos en el equipo. La aplicación 
+                puede ser difícil de entender y modificar. Como resultado, el desarrollo normalmente se ralentiza. Además, como no hay límites estrictos 
+                entre los módulos, la modularidad se rompe con el tiempo. Además, debido a que puede ser difícil entender cómo implementar correctamente 
+                un cambio, la calidad del código declina con el tiempo. Es una espiral descendente.</li>
+            <li><b>IDE sobrecargado</b> - cuanto mayor es la base de código, más lento es el IDE y menos productivos son los desarrolladores.</li>
+            <li><b>Contenedor web sobrecargado</b> - cuanto más grande es la aplicación, más tiempo tarda en iniciarse. Esto tiene un gran impacto en la 
+                productividad de los desarrolladores debido al tiempo perdido esperando a que el contenedor comience. También afecta al despliegue.</li>
+            <li><b>El despliegue continuo es difícil</b> - una aplicación monolítica de gran tamaño es también un obstáculo para los despliegues frecuentes. Para 
+                actualizar un componente tiene que volver a desplegar toda la aplicación. Esto interrumpirá las tareas en segundo plano (por ejemplo, los 
+                trabajos de Quartz en una aplicación Java), independientemente de si se ven afectados por el cambio, y posiblemente causen problemas. También 
+                existe la posibilidad de que los componentes que no se hayan actualizado no se inicien correctamente. Como resultado, el riesgo asociado con 
+                la redistribución aumenta, lo que desalienta las actualizaciones frecuentes. Esto es especialmente un problema para los desarrolladores de 
+                interfaces de usuario, ya que por lo general necesitan iterar rápidamente y redistribuir con frecuencia.</li>
+            <li><b>Escalar la aplicación puede ser difícil</b> - una arquitectura monolítica es aquella que sólo puede escalar en una dimensión. Por un lado, puede 
+                escalar por un volumen de transacciones creciente, ejecutando más copias de la aplicación. Algunas nubes pueden incluso ajustar de forma dinámica 
+                el número de instancias basándose en la carga. Pero por otro lado, esta arquitectura no puede escalar por un incremento en el volumen de datos. 
+                Cada copia de la instancia de aplicación accederá a todos los datos, lo que hace que el almacenamiento en caché sea menos eficaz y aumenta el 
+                consumo de memoria y el tráfico de E/S. Además, los distintos componentes de aplicación tienen requisitos de recursos diferentes: uno puede ser 
+                intensivo en CPU mientras que otro puede ser intensivo en memoria. Con una arquitectura monolítica no podemos escalar cada componente de forma independiente.</li>
+            <li><b>Obstáculo para el desarrollo en escala</b> - Una aplicación monolítica es también un obstáculo para el desarrollo en escala. Una vez que la aplicación 
+                alcanza un cierto tamaño, es útil dividir el área de ingeniería en equipos que se centran en áreas funcionales específicas. Por ejemplo, es 
+                posible que queramos tener el equipo de interfaz de usuario, el equipo de contabilidad, el equipo de inventario, etc. El problema con una 
+                aplicación monolítica es que impide que los equipos trabajen de forma independiente. Los equipos deben coordinar sus esfuerzos de desarrollo y 
+                redistribución. Es mucho más difícil para un equipo hacer un cambio y actualizar en producción.</li>
+            <li><b>Requiere un compromiso a largo plazo con una pila de tecnologías</b> - una arquitectura monolítica le obliga a casarse con la pila de tecnologías 
+                (y en algunos casos, con una versión particular de esa tecnología) que eligió al comienzo del desarrollo. Con una aplicación monolítica, puede 
+                ser difícil adoptar gradualmente una tecnología más nueva. Por ejemplo, imaginemos que usted eligió la JVM. Tiene algunas opciones de lenguaje, 
+                ya que además de Java puede utilizar otros lenguajes de la JVM que interactúan muy bien con Java como Groovy y Scala. Pero los componentes 
+                escritos en lenguajes que no son JVM no tienen cabida dentro de su arquitectura monolítica. Además, si su aplicación utiliza un framework de 
+                plataforma que posteriormente se vuelve obsoleto, puede resultar difícil migrar gradualmente la aplicación a un framework más nuevo y mejor. 
+                Es posible que para adoptar un nuevo framework de plataforma tenga que reescribir toda la aplicación, lo cual es una tarea arriesgada.</li>
+        </ul>
 
         <h2>Patrones relacionados</h2>
         <p>La arquitectura de microservicios es una alternativa que abarca las limitantes de la arquitectura monolítica.</p>
