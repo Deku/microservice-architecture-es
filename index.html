@@ -28,7 +28,7 @@ title: Un lenguaje de patrón para microservicios
 		</header>
 
 		<p class="center">
-			Chris Richardson es un arquitecto de software y empresario, con grado académico en Ciencias de la Computación de la 
+			<a href="http://www.chrisrichardson.net/about.html">Chris Richardson</a> es un arquitecto de software y empresario, con grado académico en Ciencias de la Computación de la 
 			Universidad de Cambridge en Inglaterra. Es un gran desarrollador en Java y autor de "POJOs in Action",
 			que describe cómo construir aplicaciones empresariales en Java con POJOs (<em>Plain Old Java Objects</em>) y frameworks,
 			como Spring e Hibernate.
@@ -55,21 +55,24 @@ title: Un lenguaje de patrón para microservicios
 		<p class="center">A continuación se listan los artículos por categorías, según la pregunta que se intenta contestar. Para mejor entendimiento, ver el mapa <i class="fas fa-up"></i></p>
 
 		<h3 id="core-patterns">Patrones base</h3>
-		<p>¿Cuál arquitectura deberías elegir para una aplicación?</p>
+		<hr/>
+		<blockquote>¿Cuál arquitectura deberías elegir para una aplicación?</blockquote>
 		<ul>
 			<li><a href="monolithic.html"><b>Monolítico</b></a> - diseña la aplicación como una unidad desplegable individual.</li>
 			<li><a href="microservices.html"><b>Microservicios</b></a> - diseña la aplicación como una colección de servicios ligeramente acoplados.</li>
 		</ul>
 
 		<h3 id="decomposition">Descomposición</h3>
-		<p>¿Cómo descomponer la aplicación en servicios?</p>
+		<hr/>
+		<blockquote>¿Cómo descomponer la aplicación en servicios?</blockquote>
 		<ul>
 			<li><a href="decomposition/decompose-by-business-capability.html"><b>Descomponer por capacidades del negocio</b></a> - define los servicios de acuerdo a las capacidades del negocio.</li>
 			<li><a href="decomposition/decompose-by-subdomain.html"><b>Descomponer por subdominios</b></a> - define los servicios de acuerdo a subdominios del modelo de dominio (Domain Driven Design)</li>
 		</ul>
 
 		<h3 id="deployment-patterns">Patrones de despliegue</h3>
-		<p>¿Cómo desplegar los servicios de la aplicación?</p>
+		<hr/>
+		<blockquote>¿Cómo desplegar los servicios de la aplicación?</blockquote>
 		<ul>
 			<li><a href="deployment/multiple-services-per-host.html"><b>Múltiples instancias de servicios por host</b></a> - despliega múltiples instancias de servicios en un sólo host.</li>
 			<li><a href="deployment/single-service-per-host.html"><b>Una instancia de servicio por host</b></a> - despliega cada instancia de servicio en su propio host.</li>
@@ -80,16 +83,18 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h3 id="cross-cutting-concerns">Intereses transversales</h3>
-		<p>¿Cómo manejar los intereses transversales?</p>
+		<hr/>
+		<blockquote>¿Cómo manejar los intereses transversales?</blockquote>
 		<ul>
 			<li><a href="/patterns/microservice-chassis.html"><b>Chasis de microservicios</b></a> - un framework que maneja intereses transversales y simplifica el desarrollo de servicios.</li>
 			<li><a href="/patterns/externalized-configuration.html"><b>Externalized configuration</b></a> - externaliza todas las configuraciones, como la dirección de la base de datos, y credenciales</li>
 		</ul>
 
 		<h3 id="communication-patterns">Patrones de comunicación</h3>
+		<hr/>
 
 		<h4 id="style">Estilo</h4>
-		<p>¿Qué mecanismos de comunicación usan los servicios para comunicarse entre ellos y con sus clientes externos?</p>
+		<blockquote>¿Qué mecanismos de comunicación usan los servicios para comunicarse entre ellos y con sus clientes externos?</blockquote>
 		<ul>
 			<li><a href="communication-style/rpi.html"><b>Llamada a procedimiento remoto</b></a> - usa un protocolo orientado a RPC para la comunicación entre servicios.</li>
 			<li><a href="communication-style/messaging.html"><b>Mensajería</b></a> - usa mensajes asíncronos para la comunicación entre servicios.</li>
@@ -97,7 +102,7 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h4 id="external-api">API Externa</h4>
-		<p>¿Cómo se comunican los clientes con los servicios?</p>
+		<blockquote>¿Cómo se comunican los clientes con los servicios?</blockquote>
 
 		<ul>
 			<li><a href="apigateway.html"><b>API Gateway (Puerta de enlace)</b></a> - un servicio que provee a todos los clientes con una interfaz única hacia los servicios.</li>
@@ -105,7 +110,7 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h4 id="service-discovery">Descubrimiento de servicios</h4>
-		<p>¿Cómo descubren la ubicación de red de una instancia los clientes de un servicio orientado a RPC?</p>
+		<blockquote>¿Cómo descubren la ubicación de red de una instancia los clientes de un servicio orientado a RPC?</blockquote>
 		<ul>
 			<li><a href="client-side-discovery.html"><b>Descubrimiento en el lado del cliente</b></a> - el cliente consulta un registro de servicios para descubrir la ubicación de una instancia de servicio.</li>
 			<li><a href="server-side-discovery.html"><b>Descubrimiento en el lado del servidor</b></a> - un enrutador consulta un registro de servicios para descubrir la ubicación de una instancia de servicio.</li>
@@ -115,13 +120,14 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h4 id="reliability">Confiabilidad</h4>
-		<p>¿Cómo prevenimos que la falla de un servicio afecte a los demás?</p>
+		<blockquote>¿Cómo prevenimos que la falla de un servicio afecte a los demás?</blockquote>
 		<ul>
 			<li><a href="reliability/circuit-breaker.html"><b>Corta circuitos</b></a> - invoca un servicio remoto a través de un proxy, el cual falla inmediatamente cuando la tasa de fallos de la llamada remota excede un umbral.</li>
 		</ul>
 
 		<h3 id="data-management">Administración de datos</h3>
-		<p>¿Cómo mantener la consistencia de datos e implementar las consultas?</p>
+		<hr/>
+		<blockquote>¿Cómo mantener la consistencia de datos e implementar las consultas?</blockquote>
 		<ul>
 			<li><a href="data/database-per-service.html"><b>Base de datos por servicio</b></a> - cada servicio tiene su propia base de datos privada.</li>
 			<li><a href="data/shared-database.html"><b>Base de datos compartida</b></a> - los servicios comparten una o más bases de datos.</li>
@@ -135,20 +141,23 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h3 id="security">Seguridad</h3>
-		<p>¿Cómo comunicar la identidad del solicitante a los servicios que manejan la solicitud?</p>
+		<hr/>
+		<blockquote>¿Cómo comunicar la identidad del solicitante a los servicios que manejan la solicitud?</blockquote>
 		<ul>
 			<li><a href="security/access-token.html"><b>Token de acceso</b></a> - un token seguro con información del usuario que es intercambiado entre servicios.</li>
 		</ul>
 
 		<h3 id="testing">Pruebas</h3>
-		<p>¿Cómo realizar pruebas de forma sencilla?</p>
+		<hr/>
+		<blockquote>¿Cómo realizar pruebas de forma sencilla?</blockquote>
 		<ul>
 			<li><a href="testing/service-component-test.html"><b>Prueba de componentes del servicio</b></a> - un plan de pruebas que evalúa un servicio de forma aislada utilizando imitaciones para todos los servicios que este invoca.</li>
 			<li><a href="testing/service-integration-contract-test.html"><b>Prueba del contrato para la integración de servicios</b></a> - un plan de pruebas para evaluar la integración con un servicio externo.</li>
 		</ul>
 
 		<h3 id="observability">Observabilidad</h3>
-		<p>¿Cómo entender el comportamiento de una aplicación y resolver problemas?</p>
+		<hr/>
+		<blockquote>¿Cómo entender el comportamiento de una aplicación y resolver problemas?</blockquote>
 		<ul>
 			<li><a href="observability/application-logging.html"><b>Colección de logs</b></a> - agrupa los logs de las aplicaciones</li>
 			<li><a href="observability/application-metrics.html"><b>Métricas de la aplicación</b></a> - instrumentaliza el código de un servicio para recolectar estadísticas operativas.</li>
@@ -163,7 +172,8 @@ title: Un lenguaje de patrón para microservicios
 		</ul>
 
 		<h3 id="ui-patterns">Patrones de Interfaz de Usuario</h3>
-		<p>¿Cómo implementar una interfaz de usuario que muestra datos desde múltiples servicios?</p>
+		<hr/>
+		<blockquote>¿Cómo implementar una interfaz de usuario que muestra datos desde múltiples servicios?</blockquote>
 		<ul>
 			<li><a href="ui/server-side-page-fragment-composition.html"><b>Composición de fragmentos de página en el lado del servidor</b></a> - construye una página en el servidor mediante la composición de fragmentos HTML generados por múltiples 
 					aplicaciones web específicas de los distintos subdominios/áreas del negocio.</li>
