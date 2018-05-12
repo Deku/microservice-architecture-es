@@ -17,14 +17,13 @@ title: Arquitectura monolítica
     <div class="container">
         <h2>Contexto</h2>
         <p>
-            Estás desarrollando una aplicación empresarial del lado del servidor. Ésta debe soportar diferentes 
-            clientes incluyendo navegadores de escritorio, navegadores móviles y aplicaciones móviles nativas. 
-            La aplicación podría también exponer un API para ser consumida por terceros. Podría también integrarse 
-            con otras aplicaciones ya sea mediante <em>web services</em> o un <em>agente de mensajes</em>. La 
-            aplicación maneja solicitudes (solicitudes HTTP y mensajes) mediante la ejecución de lógica de negocio, 
-            accediendo a una base de datos, intercambiando mensajes con otros sistemas, y retornando una respuesta 
-            en HTML/JSON/XML. Existen componentes lógicos que corresponden a diferentes áreas funcionales de la 
-            aplicación.
+            Estás desarrollando una aplicación empresarial en el lado del servidor. Esta debe soportar una variedad 
+            de clientes diferentes incluyendo navegadores de escritorio, navegadores móviles y aplicaciones móviles 
+            nativas. La aplicación también puede exponer una API para que la consuman terceros. También puede 
+            integrarse con otras aplicaciones a través de servicios web o de un servidor de mensajes. La aplicación 
+            maneja peticiones (peticiones HTTP y mensajes) ejecutando la lógica de negocio, accediendo a una base de datos, 
+            intercambiando mensajes con otros sistemas y devolviendo una respuesta HTML/JSON/XML. Existen componentes 
+            lógicos que corresponden a diferentes áreas funcionales de la aplicación.
         </p>
 
         <h2>Problema</h2>
@@ -36,7 +35,7 @@ title: Arquitectura monolítica
             <li>Los miembros nuevos del equipo deben volverse productivos rápidamente.</li>
             <li>La aplicación debe ser fácil de entender y modificar.</li>
             <li>Deseas aplicar despliegue continuo en la aplicación.</li>
-            <li>Debes correr múltiples instancias de la aplicación en diferentes máquinas para satisfacer las 
+            <li>Debes ejecutar múltiples instancias de la aplicación en diferentes máquinas para satisfacer las 
                 necesidades de escalabilidad y disponibilidad.</li>
             <li>Deseas tomar ventaja de tecnologías emergentes (frameworks, lenguajes, etc.).</li>
         </ul>
@@ -99,7 +98,7 @@ title: Arquitectura monolítica
                 posible que queramos tener el equipo de interfaz de usuario, el equipo de contabilidad, el equipo de inventario, etc. El problema con una 
                 aplicación monolítica es que impide que los equipos trabajen de forma independiente. Los equipos deben coordinar sus esfuerzos de desarrollo y 
                 redistribución. Es mucho más difícil para un equipo hacer un cambio y actualizar en producción.</li>
-            <li><b>Requiere un compromiso a largo plazo con una pila de tecnologías</b> - una arquitectura monolítica le obliga a casarse con la pila de tecnologías 
+            <li><b>Requiere un compromiso a largo plazo con una pila tecnológica</b> - una arquitectura monolítica le obliga a casarse con la pila tecnológica 
                 (y en algunos casos, con una versión particular de esa tecnología) que eligió al comienzo del desarrollo. Con una aplicación monolítica, puede 
                 ser difícil adoptar gradualmente una tecnología más nueva. Por ejemplo, imaginemos que usted eligió la JVM. Tiene algunas opciones de lenguaje, 
                 ya que además de Java puede utilizar otros lenguajes de la JVM que interactúan muy bien con Java como Groovy y Scala. Pero los componentes 
