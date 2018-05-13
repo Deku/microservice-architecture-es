@@ -2209,6 +2209,11 @@
 				background-color: #e8edec;
 			}
 
+			#main > section.warning {
+				background-color: #ffd600;
+				color: #fff;
+			}
+
 /* Wide */
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
