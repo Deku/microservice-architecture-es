@@ -1749,7 +1749,7 @@
 
 /* List */
 
-	ul.default {
+	ul.default, ul.default ul {
 		list-style: disc;
 		padding-left: 1em;
 	}
@@ -1757,6 +1757,10 @@
 		ul.default li {
 			padding-left: 0.5em;
 		}
+
+	ul.default ul {
+		list-style: circle;
+	}
 
 	ul.icons {
 		cursor: default;

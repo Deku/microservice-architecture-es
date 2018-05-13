@@ -17,7 +17,7 @@ title: Arquitectura monolítica
     <div class="container">
         <h2>Contexto</h2>
         <p>
-            Estás desarrollando una aplicación empresarial en el lado del servidor. Esta debe soportar una variedad 
+            Usted está desarrollando una aplicación empresarial en el lado del servidor. Esta debe soportar una variedad 
             de clientes diferentes incluyendo navegadores de escritorio, navegadores móviles y aplicaciones móviles 
             nativas. La aplicación también puede exponer una API para que la consuman terceros. También puede 
             integrarse con otras aplicaciones a través de servicios web o de un servidor de mensajes. La aplicación 
@@ -34,19 +34,19 @@ title: Arquitectura monolítica
             <li>Existe un equipo de desarrollo trabajando en la aplicación.</li>
             <li>Los miembros nuevos del equipo deben volverse productivos rápidamente.</li>
             <li>La aplicación debe ser fácil de entender y modificar.</li>
-            <li>Deseas aplicar despliegue continuo en la aplicación.</li>
-            <li>Debes ejecutar múltiples instancias de la aplicación en diferentes máquinas para satisfacer las 
+            <li>Desea aplicar despliegue continuo en la aplicación.</li>
+            <li>Debe ejecutar múltiples instancias de la aplicación en diferentes máquinas para satisfacer las 
                 necesidades de escalabilidad y disponibilidad.</li>
-            <li>Deseas tomar ventaja de tecnologías emergentes (frameworks, lenguajes, etc.).</li>
+            <li>Desea tomar ventaja de tecnologías emergentes (frameworks, lenguajes, etc.).</li>
         </ul>
 
         <h2>Solución</h2>
         <p>
            Defina una arquitectura que estructura la aplicación como un conjunto de servicios colaborativos 
-           ligeramente acoplados. Este enfoque corresponde al eje Y del Cubo de Escala. Cada servicio implementa 
+           ligeramente acoplados. Este enfoque corresponde al eje Y del <a href="scale-cube.html"><strong>Cubo de Escala</strong></a>. Cada servicio implementa 
            un conjunto de funciones estrechamente relacionadas. Por ejemplo, una aplicación puede consistir en 
            servicios como el servicio de gestión de pedidos, el servicio de gestión de clientes, etc.
-        </p>>
+        </p>
         <p>
             Los servicios se comunican utilizando protocolos síncronos como HTTP/REST o protocolos asíncronos como 
             AMQP. Los servicios pueden desarrollarse y desplegarse independientemente unos de otros. Cada servicio 
@@ -95,7 +95,7 @@ title: Arquitectura monolítica
         </ul>
 
         <span>Esta solución tiene una serie de <u>inconvenientes</u>:</span>
-        <ul>
+        <ul class="default">
             <li>
                 <b>Los desarrolladores deben enfrentarse a la complejidad adicional de crear un sistema distribuido:</b>
                 <ul>
@@ -116,8 +116,8 @@ title: Arquitectura monolítica
                 como es el caso de Netflix, la sobrecarga es aún mayor.</li>
         </ul>
 
-        <span>Hay muchos temas que debe abordar:</span>
-        <ul>
+        <span>Hay muchos <u>temas que debe abordar</u>:</span>
+        <ul class="default">
             <li>
                 <b>¿Cuándo utilizar la arquitectura de microservicios?</b>
                 <p>
@@ -178,10 +178,18 @@ title: Arquitectura monolítica
         <img src="http://microservices.io/i/PatternsRelatedToMicroservices.jpg" alt="Patrones relacionados a los microservicios"/>
         
         <h2>Usos conocidos</h2>
-        <p>La mayoría de los sitios web a gran escala, incluyendo Netflix, Amazon y eBay, han evolucionado de una arquitectura monolítica a una arquitectura de microservicio.</p>
-        <p>Netflix, que es un servicio de streaming de vídeo muy popular que es responsable de hasta el 30% del tráfico de Internet, tiene una arquitectura orientada a servicios a gran escala. Manejan más de mil millones de llamadas al día a su API de transmisión de vídeo desde más de 800 tipos diferentes de dispositivos. Cada llamada de API se envía a un promedio de seis llamadas a servicios de backend.</p>
-        <p>Amazon.com originalmente tenía una arquitectura de dos niveles. Para escalar, migraron a una arquitectura orientada a servicios que consistía en cientos de servicios backend. Varias aplicaciones llaman a estos servicios, incluyendo las aplicaciones que implementan el sitio web Amazon.com y la API de servicios web. La aplicación del sitio web Amazon.com llama a 100-150 servicios para obtener los datos que solían construir una página web.</p>
-        <p>El sitio de subastas ebay.com también evolucionó de una arquitectura monolítica a una arquitectura orientada a servicios. El nivel de aplicación consta de múltiples aplicaciones independientes. Cada aplicación implementa la lógica de negocio para un área funcional específica, como la compra o la venta. Cada aplicación utiliza particiones del eje X y algunas aplicaciones, como las de búsqueda, utilizan particiones del eje Z. Ebay.com también aplica una combinación de escalado X-, Y- y Z-style al nivel de la base de datos.</p>
+        <p>La mayoría de los sitios web a gran escala, incluyendo Netflix, Amazon y eBay, han evolucionado de una arquitectura monolítica a una arquitectura de microservicios.</p>
+        <p><a href="www.netflix.com">Netflix</a>, que es un servicio de streaming de vídeo muy popular que es responsable de hasta el 30% del tráfico de Internet, tiene 
+            una arquitectura orientada a servicios a gran escala. Manejan más de mil millones de llamadas al día a su API de transmisión 
+            de vídeo desde más de 800 tipos diferentes de dispositivos. Cada llamada de API se envía a un promedio de seis llamadas a servicios de backend.</p>
+        <p><a href="www.amazon.com">Amazon.com</a> originalmente tenía una arquitectura de dos niveles. Para escalar, migraron a una arquitectura orientada a servicios 
+            que consistía en cientos de servicios backend. Varias aplicaciones llaman a estos servicios, incluyendo las aplicaciones que 
+            implementan el sitio web Amazon.com y la API de servicios web. La aplicación del sitio web Amazon.com llama a 100-150 servicios 
+            para obtener los datos que solían construir una página web.</p>
+        <p>El sitio de subastas <a href="www.ebay.com">ebay.com</a> también evolucionó de una arquitectura monolítica a una arquitectura orientada a servicios. El nivel 
+            de aplicación consta de múltiples aplicaciones independientes. Cada aplicación implementa la lógica de negocio para un área funcional 
+            específica, como la compra o la venta. Cada aplicación utiliza particiones del eje X y algunas aplicaciones, como las de búsqueda, 
+            utilizan particiones del eje Z. Ebay.com también aplica una combinación de escalado X, Y y Z al nivel de la base de datos.</p>
         <p>Existen muchos otros ejemplos de empresas que utilizan la arquitectura de microservicios.</p>
     </div>
 </section>
